@@ -1,0 +1,42 @@
+pipeline {
+	agent any
+	
+	stages
+{
+	
+	stage ('testing')
+ {
+		
+		steps{
+			echo "Test successfull"
+		     }
+
+}
+
+	stage ('permission')
+{
+		steps{
+			chmod 777 pipelineTest.sh
+		     }	
+
+}
+
+
+	stage ('Build')
+{
+		steps{
+			./pipelineTest.sh
+		     }
+}
+
+	stage ('Final')
+{
+		steps{
+			echo "Congrats your deployment is successfull"
+		     }
+}
+
+
+}
+
+}
